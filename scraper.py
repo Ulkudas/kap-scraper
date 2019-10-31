@@ -1,4 +1,4 @@
-import requests, re, os, json
+import requests, re, os, json, sys
 from bs4 import BeautifulSoup
 
 def get_company_div(se_code, base_url):
@@ -15,6 +15,7 @@ def get_company_div(se_code, base_url):
         soup = BeautifulSoup(content, 'html.parser')
         divs = list(soup.findAll("div", {"class": "searchResult company"}))
 
+        company_div = 'No such div.'
         for div in divs:
             div_soup = BeautifulSoup(str(div), 'html.parser')
             scode_divs = list(div_soup.findAll("div", {"class": "stockCode"}))
@@ -126,11 +127,12 @@ def download_financial_file(base_url, disclosure_index, data_path, filename):
                 f.write(response.content)
                 return
 
-config = {
-    'base_url': 'https://www.kap.org.tr/tr/'
-}
+if __name__ == '__main__':
+    config = {
+        'base_url': 'https://www.kap.org.tr/tr/'
+    }
 
-se_code = input().lower()
-current_path = os.path.dirname(os.path.abspath(__file__))
-data_path = os.path.join(current_path, 'data')
-download_financial_files(data_path, se_code, config['base_url'])
+    se_code = sys.argv[1]
+    current_path = os.path.dirname(os.path.abspath(__file__))
+    data_path = os.path.join(current_path, 'data')
+    download_financial_files(data_path, se_code, config['base_url'])
