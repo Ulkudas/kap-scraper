@@ -9,12 +9,15 @@ This script downloads the latest activity report and financial report of a compa
 ## Usage 
 Install dependencies:
 ```bash 
- pip install -r requirements.txt
+$ pip install -r requirements.txt
 ```
 
 Run the script with a stock code:
 ```
-  python scraper.py YKBNK 
+$ python scraper.py YKBNK 
 ```
 
-It will download the reports into `data` directory.
+It will download the reports into `data` directory. 
+
+## Current situation
+As of October 2019, the scraper may not run correctly since it is not up to date. Anyone interested can contact me via email.
