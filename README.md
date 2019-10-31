@@ -1,5 +1,4 @@
 # KAP Scraper
---- 
 KAP (Public Disclosure Platform in English) is an electronic system through which electronically signed notifications required by the capital markets and Borsa Istanbul (Istanbul Stock Market) regulations are publicly disclosed.
 
 This script downloads the latest activity report and financial report of a company from KAP which is specified through a stock code. For instance, stock code of "Yapi Kredi Bank" is "YKBNK". Reports are downloaded into a directory called `data`.
